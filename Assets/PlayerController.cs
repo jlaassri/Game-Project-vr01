@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
 
     public int Dmg = 10;
 
-    public int MovementSpeed = 5;
+    public float MaxSpeed = 1.5f;
 
 
     void Start()
     {
+        //sets health at scene start
         CurrHealth = MaxHealth;
 
         
@@ -23,8 +24,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //moves ship 
+        Vector3 pos = transform.position;
+
+        transform.position = pos;
+
+        pos.y += Input.GetAxis("Vertical") * MaxSpeed * Time.deltaTime;
+
+        pos.x += Input.GetAxis("Horizontal") * MaxSpeed * Time.deltaTime;
+
         
         
+
 
     }
 }
