@@ -23,19 +23,23 @@ public class Ebullet : MonoBehaviour
         {
             DestroyEbullet();
         }
-        
-        void TriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                DestroyEbullet();
-            }
-        }
 
-        void DestroyEbullet()
-        {
-            Destroy(gameObject);
-        }
+        
 
     }
+
+    void TriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            DestroyEbullet();
+        }
+    }
+
+    void DestroyEbullet()
+    {
+        Destroy(gameObject);
+    }
+
+
 }
