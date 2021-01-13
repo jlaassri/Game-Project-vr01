@@ -28,7 +28,7 @@ public class Ebullet : MonoBehaviour
 
     }
 
-    void TriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {

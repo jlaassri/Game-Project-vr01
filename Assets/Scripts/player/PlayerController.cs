@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] private UI_Inventory uiInventory;
     public int MaxHealth = 100;
     public int CurrHealth;
 
@@ -14,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Camera cam;
 
+    private Inventory inventory;
+
     Vector2 movement;
     Vector2 mousePos;
 
@@ -22,7 +26,8 @@ public class PlayerController : MonoBehaviour
         //sets health at scene start
         CurrHealth = MaxHealth;
 
-
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
 
     }
 
