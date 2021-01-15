@@ -10,4 +10,11 @@ public class ItemAssets : MonoBehaviour
     {
         instance = this;
     }
+
+    public Transform Prefab_ItemWorld;
+
+    public Sprite HealthSprite;
+    public Sprite SpeedSprite;
+    public Sprite FirerateSprite;
+
 }

@@ -14,4 +14,15 @@ public class Item
 
     public ItemType itemType;
     public int amount;
+
+    public Sprite GetSprite()
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.Health:   return ItemAssets.instance.HealthSprite;
+            case ItemType.Speed:    return ItemAssets.instance.SpeedSprite;
+            case ItemType.Firerate: return ItemAssets.instance.FirerateSprite;
+        }
+    }
 }

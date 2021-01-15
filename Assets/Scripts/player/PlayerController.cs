@@ -54,12 +54,24 @@ public class PlayerController : MonoBehaviour
         rb.rotation = angle;
     }
 
-   /* void facemouse()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Itemworld itemWorld = collider.GetComponent<Itemworld>();
+        if (itemWorld != null)
+        {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestorySelf();
+        }
 
-        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.up = direction;
-    }*/
+    }
+
+
+    /* void facemouse()
+     {
+         Vector3 mousePosition = Input.mousePosition;
+         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+         Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+         transform.up = direction;
+     }*/
 }
