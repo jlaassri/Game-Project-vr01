@@ -31,6 +31,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Health( int amount)
+    {
+        if(CurrHealth < 0 )
+        {
+            Debug.Log("you lose");
+        }
+
+        
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -63,7 +74,11 @@ public class PlayerController : MonoBehaviour
             itemWorld.DestorySelf();
         }
 
+        
+
     }
+
+
 
 
     /* void facemouse()
