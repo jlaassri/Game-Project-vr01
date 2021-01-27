@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
 
+        Itemworld.SpawnItemWorld(new Vector3(2, 2), new Item { itemType = Item.ItemType.Health, amount = 1 });
+        Itemworld.SpawnItemWorld(new Vector3(-2, 2), new Item { itemType = Item.ItemType.Speed, amount = 1 });
+        Itemworld.SpawnItemWorld(new Vector3(0, -2), new Item { itemType = Item.ItemType.Firerate, amount = 1 });
     }
 
     public void Health( int amount)

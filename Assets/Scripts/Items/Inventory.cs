@@ -12,7 +12,7 @@ public class Inventory
     {
         itemList = new List<Item>();
 
-        AddItem(new Item { itemType = Item.ItemType.Money, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.Firerate, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Health, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Speed, amount = 1 });
         Debug.Log(itemList.Count);
