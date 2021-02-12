@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Itemworld : MonoBehaviour
+public class ItemWorld : MonoBehaviour
 {
-    public static Itemworld SpawnItemWorld(Vector3 position, Item item)
+    public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
     {
         Transform transform = Instantiate(ItemAssets.instance.Prefab_ItemWorld, position, Quaternion.identity);
 
-        Itemworld itemWorld =  transform.GetComponent<Itemworld>();
+        ItemWorld itemWorld =  transform.GetComponent<ItemWorld>();
         itemWorld.SetItem(item);
 
         return itemWorld;
@@ -29,12 +29,15 @@ public class Itemworld : MonoBehaviour
 
     public Item GetItem()
     {
+
+        Debug.Log("item");
         return item;
     }
 
     public void DestorySelf()
     {
         Destroy(gameObject);
+        Debug.Log("item");
     }
 
 }

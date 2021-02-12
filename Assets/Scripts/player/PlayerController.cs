@@ -29,9 +29,6 @@ public class PlayerController : MonoBehaviour
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
 
-        Itemworld.SpawnItemWorld(new Vector3(2, 2), new Item { itemType = Item.ItemType.Health, amount = 1 });
-        Itemworld.SpawnItemWorld(new Vector3(-2, 2), new Item { itemType = Item.ItemType.Speed, amount = 1 });
-        Itemworld.SpawnItemWorld(new Vector3(0, -2), new Item { itemType = Item.ItemType.Firerate, amount = 1 });
     }
 
     public void Health( int amount)
@@ -68,16 +65,16 @@ public class PlayerController : MonoBehaviour
         rb.rotation = angle;
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Itemworld itemWorld = collider.GetComponent<Itemworld>();
-        if (itemWorld != null)
+        ItemWorld itemWorld = other.GetComponent<ItemWorld>();
+        if (itemWorld)
         {
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestorySelf();
         }
 
-        
+        Debug.Log("collected");
 
     }
 
