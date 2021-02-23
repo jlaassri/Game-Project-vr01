@@ -27,4 +27,16 @@ public class Item
             case ItemType.Firerate: return ItemAssets.instance.FirerateSprite;
         }
     }
+
+    public bool IsStackable()
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.Health:
+            case ItemType.Speed:
+            case ItemType.Firerate:
+                return true;
+        }
+    }
 }
