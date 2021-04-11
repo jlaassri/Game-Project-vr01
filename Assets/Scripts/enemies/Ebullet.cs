@@ -8,7 +8,7 @@ public class Ebullet : MonoBehaviour
 
     [SerializeField] public PlayerController Player;
 
-    public int Dmg;
+    public int Dmg = 100;
     private Transform player;
     private Vector2 target;
     void Start()
@@ -17,7 +17,7 @@ public class Ebullet : MonoBehaviour
         target = new Vector2(player.position.x, player.position.y);
 
 
-        Dmg = 10;
+        
     }
 
   
@@ -29,18 +29,17 @@ public class Ebullet : MonoBehaviour
 
     }
 
-    public void Damage()
+    void Damage()
     {
-        Dmg = 10;
+        PlayerController.CurrHealth = PlayerController.CurrHealth - Dmg;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            DestroyEbullet();
-
             Damage();
+            DestroyEbullet();
 
             Debug.Log("hit");
         }

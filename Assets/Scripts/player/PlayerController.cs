@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private UI_Inventory uiInventory;
     public int MaxHealth = 100;
-    public int CurrHealth;
-
+    public static int CurrHealth;
+    public int Healthup;
     public int Dmg = 10;
 
     public float MaxSpeed = 1.5f;
@@ -29,28 +30,28 @@ public class PlayerController : MonoBehaviour
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
 
+        inventory.GetItemList();
+
+
     }
 
-    public void Health( int amount)
-    {
-        if(CurrHealth < 0 )
-        {
-            Debug.Log("you lose");
-        }
-
-        
-    }
-
-
+    
     // Update is called once per frame
     void Update()
     {
+        
+
         movement.x = Input.GetAxisRaw("Horizontal");
 
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+       
+        if (CurrHealth < 0)
+        {
+            Debug.Log("you lose");
+        }
         //facemouse();
     }
     
@@ -70,12 +71,11 @@ public class PlayerController : MonoBehaviour
         ItemWorld itemWorld = other.GetComponent<ItemWorld>();
         if (itemWorld)
         {
+            
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestorySelf();
+            Debug.Log("collected");
         }
-
-        Debug.Log("collected");
-
     }
 
 

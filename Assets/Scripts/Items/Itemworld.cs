@@ -30,7 +30,7 @@ public class ItemWorld : MonoBehaviour
     public Item GetItem()
     {
 
-        Debug.Log("item");
+        Debug.Log(item);
         return item;
     }
 
