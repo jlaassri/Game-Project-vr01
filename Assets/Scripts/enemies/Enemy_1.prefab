@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1967156847791204579}
   - component: {fileID: 1967156847791204577}
   - component: {fileID: -2909892885036368644}
+  - component: {fileID: -5896413450206156341}
   m_Layer: 0
   m_Name: Enemy_1
   m_TagString: Untagged
@@ -96,11 +97,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2955199050935774907, guid: faba1c2cb8e0be0429a95f4c2e074282, type: 3}
+  maxhealth: 50
+  currhealth: 50
   Speed: 1
   Stopdist: 1
   retreatdist: 0.5
   strartimer: 2
   bullet: {fileID: 3784493712356773045, guid: 49f2acfa9f64b784ba643d50124f64b3, type: 3}
+  Health: {fileID: 4977627011074873627, guid: 2d0f2c377a7847640bc767d06d8a441c, type: 3}
 --- !u!50 &-2909892885036368644
 Rigidbody2D:
   serializedVersion: 4
@@ -122,3 +126,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-5896413450206156341
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967156847791204580}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1

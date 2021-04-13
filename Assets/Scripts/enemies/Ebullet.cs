@@ -8,7 +8,7 @@ public class Ebullet : MonoBehaviour
 
     [SerializeField] public PlayerController Player;
 
-    public int Dmg = 100;
+    public int Dmg = 10;
     private Transform player;
     private Vector2 target;
     void Start()

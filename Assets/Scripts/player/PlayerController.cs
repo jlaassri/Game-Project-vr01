@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
-    public int MaxHealth = 100;
-    public static int CurrHealth;
+    public float MaxHealth = 100;
+    public static float CurrHealth;
     public int Healthup;
-    public int Dmg = 10;
+    public float Dmg = 10;
 
     public float MaxSpeed = 1.5f;
 
@@ -78,7 +78,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public static float Damage()
+    {
+        int damage = 10;
+        
 
+        return damage;
+    }
 
 
     /* void facemouse()

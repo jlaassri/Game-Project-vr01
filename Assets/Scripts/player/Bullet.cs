@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int Dmg = 20;
     public float timer = 1f;
     public void Update()
     {

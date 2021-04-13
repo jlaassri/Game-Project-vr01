@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemeyAI : MonoBehaviour
 {
     public Transform player;
+    public float maxhealth = 50;
+    public float currhealth = 50; 
     public float Speed;
     public float Stopdist;
     public float retreatdist;
@@ -14,11 +16,14 @@ public class EnemeyAI : MonoBehaviour
     private float timebtwshots;
     public float strartimer;
     public GameObject bullet;
-    
+
+    public GameObject Health;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+
+        maxhealth = currhealth;
 
         
     }
@@ -48,6 +53,36 @@ public class EnemeyAI : MonoBehaviour
         {
             timebtwshots -= Time.deltaTime;
         }
+
+        if(currhealth <= 0)
+        {
+            Debug.Log("Destroy");
+            Destroy();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            Damage();
+
+            Debug.Log("Damage");
+        }
+    }
+
+    void Damage()
+    {
+        currhealth = currhealth - PlayerController.Damage();
+    }
+
+    void Destroy()
+    {
+        Destroy(gameObject);
+
+        Instantiate(Health, transform.position, Quaternion.identity);
+
+        Debug.Log("Death");
     }
 
 }
