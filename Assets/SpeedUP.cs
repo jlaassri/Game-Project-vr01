@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireRateUP1 : MonoBehaviour
+public class SpeedUP : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -10,7 +10,9 @@ public class FireRateUP1 : MonoBehaviour
         if (playerController)
         {
 
-            playerController.firerateup++;
+            playerController.Speedup++;
         }
     }
 }
+
+

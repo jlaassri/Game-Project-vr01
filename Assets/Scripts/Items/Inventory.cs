@@ -15,9 +15,9 @@ public class Inventory
     {
         itemList = new List<Item>();
 
-        AddItem(new Item { itemType = Item.ItemType.Firerate, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.Health, amount = 1 });
-        AddItem(new Item { itemType = Item.ItemType.Speed, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.Firerate, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.Health, amount = 1 });
+        //AddItem(new Item { itemType = Item.ItemType.Speed, amount = 1 });
         Debug.Log(itemList.Count);
 
         /*
@@ -72,10 +72,10 @@ public class Inventory
         return itemList;
     }
 
-
-    public int FindItemHeal()
+    
+    public float FindItemHeal()
     {
-        int heal = 0;
+        float heal = 0;
         foreach (Item itemEnumerator in itemList)
         {
             if (itemEnumerator.itemType== Item.ItemType.Health)
@@ -88,6 +88,23 @@ public class Inventory
         Debug.Log($"You have {heal} Health");
 
         return heal;
+    }
+
+    public float FindItemSpeed()
+    {
+        float speed = 0;
+        foreach (Item itemEnumerator in itemList)
+        {
+            if (itemEnumerator.itemType == Item.ItemType.Speed)
+            {
+                speed++;
+            }
+        }
+
+        // String interpolation for easier display.
+        Debug.Log($"You have {speed} Health");
+
+        return speed;
     }
 
     /*

@@ -7,12 +7,14 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
-    public float MaxHealth = 100;
+    
     public static float CurrHealth;
-    public int Healthup;
+    public float Healthup = 0;
     public float Dmg = 10;
+    public float firerateup = 0;
+    public float Speedup = 0;
 
-    public float MaxSpeed = 1.5f;
+    //public float MaxSpeed = 1.5f;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //sets health at scene start
-        CurrHealth = MaxHealth;
+        MaxHealth();
 
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
@@ -39,8 +41,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //MaxHealth = MaxHealth + inventory.FindItemHeal() * 6.5;
+        /*
+        if(CurrHealth > MaxHealth())
+        {
+            CurrHealth = MaxHealth();
+        }
+        */
 
+        
         movement.x = Input.GetAxisRaw("Horizontal");
 
         movement.y = Input.GetAxisRaw("Vertical");
@@ -57,7 +66,7 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * MaxSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * MaxSpeed() * Time.fixedDeltaTime);
 
         Vector2 look = mousePos - rb.position;
 
@@ -78,7 +87,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public static float Damage()
+    
+    public float MaxHealth()
+    {
+        float maxHealth = 100;
+        
+
+        maxHealth = maxHealth + Healthup * 6;
+        Debug.Log($"You have {maxHealth.ToString()}");
+
+        return maxHealth;
+    }
+
+    public float MaxSpeed()
+    {
+        float maxspeed = 1.5f;
+        
+
+        maxspeed = maxspeed + Speedup / 2;
+        
+        return maxspeed;
+    }
+
+public static float Damage()
     {
         int damage = 10;
         

@@ -10,24 +10,24 @@ public class PlayerShooter : MonoBehaviour
 
     public float force = 10f;
     public float FireDelay = 0.025f;
-    float cooldowntimer = 0;
+    public float cooldowntimer = 0;
 
     void Update()
     {
         cooldowntimer -= Time.deltaTime;
 
-        /*if (Input.GetButton("Fire") && cooldowntimer <= 0)
+        if (Input.GetButton("Fire") && cooldowntimer <= 0)
         {
             Debug.Log("fire");
             cooldowntimer = FireDelay;
             Shoot();
-        }*/
-
+        }
+        /*
         if (Input.GetButton("Fire") )
         {
             Debug.Log("fire");
             Shoot();
-        }
+        }*/
 
     }
 

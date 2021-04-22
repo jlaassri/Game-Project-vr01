@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireRateUP1 : MonoBehaviour
+public class FireRateUp : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
