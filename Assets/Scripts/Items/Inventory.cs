@@ -20,19 +20,7 @@ public class Inventory
         //AddItem(new Item { itemType = Item.ItemType.Speed, amount = 1 });
         Debug.Log(itemList.Count);
 
-        /*
-        foreach (item in itemList)
-        {
-            funcX(item)
-        }
-        */
-        // if (itemList.Contains(x => x.itemType.ItemType.Health))
-
-
-        //if (itemList.Contains(this.itemType.ItemType.Health))
-        //{
-        //    Debug.Log("found it");
-        //}
+        
 
 
         Debug.Log("inventroy");
@@ -73,6 +61,22 @@ public class Inventory
     }
 
     
+}
+/*
+        foreach (item in itemList)
+        {
+            funcX(item)
+        }
+        */
+// if (itemList.Contains(x => x.itemType.ItemType.Health))
+
+
+//if (itemList.Contains(this.itemType.ItemType.Health))
+//{
+//    Debug.Log("found it");
+//}
+
+/*
     public float FindItemHeal()
     {
         float heal = 0;
@@ -107,7 +111,7 @@ public class Inventory
         return speed;
     }
 
-    /*
+    
     public funcX(Item item)
     {
       int heal;
@@ -135,4 +139,3 @@ public class Inventory
     return fire, heal, speed;
     }
     */
-}

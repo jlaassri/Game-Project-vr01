@@ -2,17 +2,20 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private Text CurrHealthUI;
     
-    public static float CurrHealth;
-    public float Healthup = 0;
-    public float Dmg = 10;
-    public float firerateup = 0;
-    public float Speedup = 0;
+
+
+    public float CurrHealth;
+    public float Healthup;
+    public static float Dmgup;
+    public float Speedup;
 
     //public float MaxSpeed = 1.5f;
 
@@ -27,27 +30,26 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //sets health at scene start
-        MaxHealth();
+        CurrHealth = MaxHealth();
 
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
 
         inventory.GetItemList();
 
-
+        
     }
 
     
     // Update is called once per frame
     void Update()
     {
-        //MaxHealth = MaxHealth + inventory.FindItemHeal() * 6.5;
-        /*
-        if(CurrHealth > MaxHealth())
+
+        if (CurrHealth > MaxHealth())
         {
             CurrHealth = MaxHealth();
         }
-        */
+        
 
         
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -57,12 +59,14 @@ public class PlayerController : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
        
-        if (CurrHealth < 0)
+        if (CurrHealth <= 0)
         {
             Debug.Log("you lose");
         }
         //facemouse();
     }
+    
+    
     
     private void FixedUpdate()
     {
@@ -87,21 +91,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void UpdateHealth()
+    {
+        CurrHealthUI.text = CurrHealth.ToString("0");
+    }
+
     
     public float MaxHealth()
     {
         float maxHealth = 100;
-        
+       
 
         maxHealth = maxHealth + Healthup * 6;
-        Debug.Log($"You have {maxHealth.ToString()}");
+        //Debug.Log($"You have {maxHealth.ToString()}");
+
 
         return maxHealth;
     }
 
     public float MaxSpeed()
     {
-        float maxspeed = 1.5f;
+        float maxspeed = 100f;
         
 
         maxspeed = maxspeed + Speedup / 2;
@@ -111,8 +121,9 @@ public class PlayerController : MonoBehaviour
 
 public static float Damage()
     {
-        int damage = 10;
-        
+        float damage = 10;
+
+        damage = damage + Dmgup * 10;
 
         return damage;
     }

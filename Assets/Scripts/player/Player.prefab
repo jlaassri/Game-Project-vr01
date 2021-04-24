@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
-  MaxHealth: 100
-  CurrHealth: 0
-  Dmg: 10
-  MaxSpeed: 1.5
+  CurrHealthUI: {fileID: 0}
+  CurrHealth: 100
+  Healthup: 0
+  Speedup: 0
   rb: {fileID: 1331626792878979890}
   cam: {fileID: 0}
 --- !u!212 &1725861488182403401
@@ -221,7 +221,7 @@ MonoBehaviour:
   bulletprefab: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
     type: 3}
   force: 10
-  FireDelay: 0.025
+  cooldowntimer: 0
 --- !u!58 &6647489336958482269
 CircleCollider2D:
   m_ObjectHideFlags: 0

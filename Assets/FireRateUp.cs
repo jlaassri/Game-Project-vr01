@@ -10,7 +10,7 @@ public class FireRateUp : MonoBehaviour
         if (playerController)
         {
 
-            playerController.firerateup++;
+            PlayerShooter.firerateup++;
         }
     }
 }

@@ -31,7 +31,9 @@ public class Ebullet : MonoBehaviour
 
     void Damage()
     {
-        PlayerController.CurrHealth = PlayerController.CurrHealth - Dmg;
+        Player.CurrHealth = Player.CurrHealth - Dmg;
+        Player.UpdateHealth();
+        this.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +50,7 @@ public class Ebullet : MonoBehaviour
     
     void DestroyEbullet()
     {
+
         Destroy(gameObject);
 
 

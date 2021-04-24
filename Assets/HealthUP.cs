@@ -10,7 +10,8 @@ public class HealthUP : MonoBehaviour
         if (playerController)
         {
 
-            playerController.Healthup++;
+            playerController.Healthup+=1;
+            Debug.Log("healthup");
         }
     }
 }
