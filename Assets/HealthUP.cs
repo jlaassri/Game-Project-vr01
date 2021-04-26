@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class HealthUP : MonoBehaviour
 {
+
+    [SerializeField] private Inven Inven;
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController playerController = other.GetComponent<PlayerController>();
         if (playerController)
         {
 
-            playerController.Healthup+=1;
+            Inven.healthUP+=1;
             Debug.Log("healthup");
         }
     }

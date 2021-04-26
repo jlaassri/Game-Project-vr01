@@ -32,7 +32,7 @@ public class Ebullet : MonoBehaviour
     void Damage()
     {
         Player.CurrHealth = Player.CurrHealth - Dmg;
-        Player.UpdateHealth();
+        //Player.UpdateHealth();
         this.gameObject.SetActive(false);
     }
 

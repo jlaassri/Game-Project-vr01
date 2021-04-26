@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
-    [SerializeField] private Text CurrHealthUI;
-    
+    [SerializeField] private UI_stats Health;
+    [SerializeField] private Inven Inven;
 
-
-    public float CurrHealth;
+    private float maxHealth = 100;
+    public float MaxHealth;
+    public float CurrHealth = 0;
     public float Healthup;
     public static float Dmgup;
     public float Speedup;
@@ -29,8 +30,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Health.Init();
         //sets health at scene start
-        CurrHealth = MaxHealth();
+        CurrHealth = MaxHealth;
 
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
@@ -44,26 +46,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Health.CurrentVal = CurrHealth;
+        Health.Maxval = MaxHealth;
 
-        if (CurrHealth > MaxHealth())
+        if (CurrHealth > MaxHealth)
         {
-            CurrHealth = MaxHealth();
+            CurrHealth = MaxHealth;
         }
-        
 
-        
+        MaxHealth = maxHealth + Inven.healthUP * 6;
+
         movement.x = Input.GetAxisRaw("Horizontal");
 
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-       
+       /*
         if (CurrHealth <= 0)
         {
             Debug.Log("you lose");
         }
-        //facemouse();
+        //facemouse(); */
     }
     
     
@@ -91,12 +95,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void UpdateHealth()
-    {
-        CurrHealthUI.text = CurrHealth.ToString("0");
-    }
-
     
+
+    /*
     public float MaxHealth()
     {
         float maxHealth = 100;
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
         return maxHealth;
     }
-
+    */
     public float MaxSpeed()
     {
         float maxspeed = 100f;

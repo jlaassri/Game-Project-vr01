@@ -128,8 +128,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
-  CurrHealthUI: {fileID: 0}
-  CurrHealth: 100
+  Health:
+    bar: {fileID: 0}
+    maxVal: 100
+    currentVal: 100
+  Inven: {fileID: 0}
+  MaxHealth: 100
+  CurrHealth: -270
   Healthup: 0
   Speedup: 0
   rb: {fileID: 1331626792878979890}
