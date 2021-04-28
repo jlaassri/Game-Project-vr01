@@ -22,8 +22,8 @@ public class UI_stats
 
         set
         {
-            
-            this.currentVal = value;
+            // stops bar from going below 1 and ablove max val
+            this.currentVal = Mathf.Clamp(value,0,Maxval);
             bar.Value = currentVal;
         }
     }

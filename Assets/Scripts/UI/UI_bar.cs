@@ -7,6 +7,7 @@ public class UI_bar : MonoBehaviour
 {
     
     private float fillAmount;
+    [SerializeField] private float lerpspeed;
 
     [SerializeField]
     private Image Fill;

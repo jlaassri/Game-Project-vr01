@@ -16,6 +16,7 @@ public class EnemeyAI : MonoBehaviour
     private float timebtwshots;
     public float strartimer;
     public GameObject bullet;
+    public LootTable thisloot;
 
     public GameObject Health;
 
@@ -76,11 +77,24 @@ public class EnemeyAI : MonoBehaviour
         currhealth = currhealth - PlayerController.Damage();
     }
 
+    private void MakeItems()
+    {
+        if (thisloot != null)
+        {
+            GameObject current = thisloot.LootPowerup();
+            if(current != null)
+            {
+                Instantiate(current.gameObject, transform.position, Quaternion.identity);
+
+            }
+        }
+    }
+
     void Destroy()
     {
         Destroy(gameObject);
-
-        Instantiate(Health, transform.position, Quaternion.identity);
+        MakeItems();
+        
 
         Debug.Log("Death");
     }

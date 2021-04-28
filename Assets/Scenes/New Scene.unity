@@ -883,6 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282f58cec791be04ea871b46cdd9a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpspeed: 2
   Fill: {fileID: 1048326030}
   ValueText: {fileID: 500147308}
 --- !u!1 &709491186 stripped
@@ -1527,6 +1528,12 @@ PrefabInstance:
       propertyPath: Speed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1967156847791204577, guid: ed79de799ce52ac47ae5392c473aed06,
+        type: 3}
+      propertyPath: thisloot
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cc02939b9f8b9d429cc1866b86d0c4a,
+        type: 2}
     - target: {fileID: 1967156847791204578, guid: ed79de799ce52ac47ae5392c473aed06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1600,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 1967156847791204580, guid: ed79de799ce52ac47ae5392c473aed06,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed79de799ce52ac47ae5392c473aed06, type: 3}

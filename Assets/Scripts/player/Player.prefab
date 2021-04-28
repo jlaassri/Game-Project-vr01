@@ -134,7 +134,7 @@ MonoBehaviour:
     currentVal: 100
   Inven: {fileID: 0}
   MaxHealth: 100
-  CurrHealth: -270
+  CurrHealth: -1030
   Healthup: 0
   Speedup: 0
   rb: {fileID: 1331626792878979890}
@@ -225,7 +225,7 @@ MonoBehaviour:
   firepoint: {fileID: 0}
   bulletprefab: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
     type: 3}
-  force: 10
+  force: 225
   cooldowntimer: 0
 --- !u!58 &6647489336958482269
 CircleCollider2D:

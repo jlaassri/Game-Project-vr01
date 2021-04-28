@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         }
 
         MaxHealth = maxHealth + Inven.healthUP * 6;
+       // Debug.Log(MaxHealth);
 
         movement.x = Input.GetAxisRaw("Horizontal");
 
@@ -92,6 +93,11 @@ public class PlayerController : MonoBehaviour
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestorySelf();
             Debug.Log("collected");
+        }
+
+        if(other.gameObject.GetComponent<HealthUP>())
+        {
+            Healthup++;
         }
     }
 

@@ -7,9 +7,9 @@ public class PlayerShooter : MonoBehaviour
 
     public Transform firepoint;
     public GameObject bulletprefab;
-
+    float firedelay = 1f;
     public static float firerateup = 0;
-    public float force = 10f;
+    public float force = 400f;
     public float cooldowntimer = 0;
 
     void Update()
@@ -19,7 +19,7 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetButton("Fire") && cooldowntimer <= 0)
         {
             Debug.Log("fire");
-            cooldowntimer = FireDelay();
+            cooldowntimer = firedelay;
             Shoot();
         }
         /*
@@ -30,7 +30,7 @@ public class PlayerShooter : MonoBehaviour
         }*/
 
     }
-
+    /*
     public float FireDelay()
     {
         float firedelay = 0.025f;
@@ -39,7 +39,7 @@ public class PlayerShooter : MonoBehaviour
     
         return firedelay;
     }
-
+    */
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletprefab, firepoint.position, firepoint.rotation);
