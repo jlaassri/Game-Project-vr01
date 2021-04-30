@@ -5,8 +5,8 @@ using UnityEngine;
 public class Ebullet : MonoBehaviour
 {
     public float speed;
-
-    [SerializeField] public PlayerController Player;
+    public PlayerHealth Player;
+    //public PlayerController Player;
 
     public int Dmg = 10;
     private Transform player;
@@ -31,7 +31,7 @@ public class Ebullet : MonoBehaviour
 
     void Damage()
     {
-        Player.CurrHealth = Player.CurrHealth - Dmg;
+        PlayerHealth.CurrHealth = PlayerHealth.CurrHealth - Dmg; 
         //Player.UpdateHealth();
         this.gameObject.SetActive(false);
     }

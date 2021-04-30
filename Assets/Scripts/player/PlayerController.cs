@@ -8,13 +8,10 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
-    [SerializeField] private UI_stats Health;
-    [SerializeField] private Inven Inven;
+    
+    //[SerializeField] private Inven Inven;
 
-    private float maxHealth = 100;
-    public float MaxHealth;
-    public float CurrHealth = 0;
-    public float Healthup;
+   
     public static float Dmgup;
     public float Speedup;
 
@@ -30,10 +27,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Health.Init();
         //sets health at scene start
-        CurrHealth = MaxHealth;
-
+        
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
 
@@ -46,16 +41,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Health.CurrentVal = CurrHealth;
-        Health.Maxval = MaxHealth;
-
-        if (CurrHealth > MaxHealth)
-        {
-            CurrHealth = MaxHealth;
-        }
-
-        MaxHealth = maxHealth + Inven.healthUP * 6;
-       // Debug.Log(MaxHealth);
+        //Debug.Log(Healthup);
+        
+        // Debug.Log(MaxHealth);
 
         movement.x = Input.GetAxisRaw("Horizontal");
 
@@ -95,27 +83,18 @@ public class PlayerController : MonoBehaviour
             Debug.Log("collected");
         }
 
-        if(other.gameObject.GetComponent<HealthUP>())
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "HealthSprite" )
         {
-            Healthup++;
+            PlayerHealth.Healthup++;
+            Debug.Log("Healthup");
         }
     }
 
     
 
-    /*
-    public float MaxHealth()
-    {
-        float maxHealth = 100;
-       
-
-        maxHealth = maxHealth + Healthup * 6;
-        //Debug.Log($"You have {maxHealth.ToString()}");
-
-
-        return maxHealth;
-    }
-    */
+    
+    
+    
     public float MaxSpeed()
     {
         float maxspeed = 100f;

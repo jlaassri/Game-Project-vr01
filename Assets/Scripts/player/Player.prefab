@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2955199050935774907}
   - component: {fileID: 1095440681412753536}
+  - component: {fileID: 2087194691549989116}
   - component: {fileID: 1725861488182403401}
   - component: {fileID: 1331626792878979890}
   - component: {fileID: 1863242829629448055}
@@ -128,17 +129,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
-  Health:
-    bar: {fileID: 0}
-    maxVal: 100
-    currentVal: 100
-  Inven: {fileID: 0}
-  MaxHealth: 100
-  CurrHealth: -1030
-  Healthup: 0
   Speedup: 0
   rb: {fileID: 1331626792878979890}
   cam: {fileID: 0}
+--- !u!114 &2087194691549989116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955199050935774905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720141b6abd400b40aa697853a09eb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+  MaxHealth: 0
+  CurrHealth: 0
 --- !u!212 &1725861488182403401
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class EnemeyAI : MonoBehaviour
     public GameObject bullet;
     public LootTable thisloot;
 
-    public GameObject Health;
+    //public GameObject Health;
 
     void Start()
     {

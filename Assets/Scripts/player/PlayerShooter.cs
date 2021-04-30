@@ -14,8 +14,10 @@ public class PlayerShooter : MonoBehaviour
 
     void Update()
     {
-        cooldowntimer -= Time.deltaTime;
-
+        if (cooldowntimer >= 0)
+        {
+            cooldowntimer -= Time.deltaTime;
+        }
         if (Input.GetButton("Fire") && cooldowntimer <= 0)
         {
             Debug.Log("fire");
