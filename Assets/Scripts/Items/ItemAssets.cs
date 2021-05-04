@@ -16,5 +16,11 @@ public class ItemAssets : MonoBehaviour
     public Sprite HealthSprite;
     public Sprite SpeedSprite;
     public Sprite FirerateSprite;
+    public Sprite DmgSprite;
+    public Sprite SpreadSprite;
+    public Sprite VerlocitySprite;
+    public Sprite ChainSprite;
+    public Sprite LifetapSprite;
+    public Sprite LifeSprite;
 
 }

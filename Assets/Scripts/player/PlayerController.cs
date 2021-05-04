@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
-    
+    //private PlayerHealth Health;
     //[SerializeField] private Inven Inven;
 
    
     public static float Dmgup;
-    public float Speedup;
+    public static float Speedup;
+    public static float maxspeed = 100f;
 
     //public float MaxSpeed = 1.5f;
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
         inventory.GetItemList();
 
+        TimerController.instance.BeginTimer();
         
     }
 
@@ -42,8 +44,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Debug.Log(Healthup);
-        
+
         // Debug.Log(MaxHealth);
+
+        Debug.Log(maxspeed);
 
         movement.x = Input.GetAxisRaw("Horizontal");
 
@@ -88,6 +92,12 @@ public class PlayerController : MonoBehaviour
             PlayerHealth.Healthup++;
             Debug.Log("Healthup");
         }
+
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "SpeedSprite")
+        {
+            PlayerHealth.Healthup++;
+            Debug.Log("speedup");
+        }
     }
 
     
@@ -97,12 +107,12 @@ public class PlayerController : MonoBehaviour
     
     public float MaxSpeed()
     {
-        float maxspeed = 100f;
+        float Maxspeed;
         
 
-        maxspeed = maxspeed + Speedup / 2;
+        Maxspeed = maxspeed + Speedup / 2;
         
-        return maxspeed;
+        return Maxspeed;
     }
 
 public static float Damage()

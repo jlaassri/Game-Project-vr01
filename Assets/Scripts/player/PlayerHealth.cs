@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         Health.CurrentVal = CurrHealth;
         Health.Maxval = MaxHealth();
 
-        Debug.Log(CurrHealth);
+        //Debug.Log(MaxHealth());
 
         if (CurrHealth >= MaxHealth())
         {

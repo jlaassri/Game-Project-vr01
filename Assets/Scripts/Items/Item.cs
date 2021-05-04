@@ -13,6 +13,10 @@ public class Item
         Firerate,
         Damage,
         LifeTap,
+        Spread,
+        Verlocity,
+        Chain,
+        Life,
     }
 
     public ItemType itemType;
@@ -26,8 +30,12 @@ public class Item
             case ItemType.Health:   return ItemAssets.instance.HealthSprite;
             case ItemType.Speed:    return ItemAssets.instance.SpeedSprite;
             case ItemType.Firerate: return ItemAssets.instance.FirerateSprite;
-                //case ItemType.Damage: return ItemAssets.instance.DamageSprite;
-                //case ItemType.LifeTap: return ItemAssets.instance.LifeTapSprite;
+            case ItemType.Damage:   return ItemAssets.instance.DmgSprite;
+            case ItemType.Verlocity:return ItemAssets.instance.VerlocitySprite;
+            case ItemType.Spread:   return ItemAssets.instance.SpreadSprite;
+            case ItemType.Chain:    return ItemAssets.instance.ChainSprite;
+            case ItemType.LifeTap:  return ItemAssets.instance.LifetapSprite;
+            case ItemType.Life:  return ItemAssets.instance.LifeSprite;
         }
     }
 
@@ -39,8 +47,11 @@ public class Item
             case ItemType.Health:
             case ItemType.Speed:
             case ItemType.Firerate:
-            //case ItemType.Damage;
-            //case ItemType.LifeTap;
+            case ItemType.Damage:
+            case ItemType.Spread:
+            case ItemType.Chain:
+            case ItemType.LifeTap:
+            case ItemType.Life:
                 return true;
         }
     }

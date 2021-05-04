@@ -78,6 +78,12 @@ MonoBehaviour:
   HealthSprite: {fileID: 21300000, guid: ec695848dec03ac48aebe4ef11239617, type: 3}
   SpeedSprite: {fileID: 21300000, guid: b93de9772fa57aa42954f37cb7d61c4d, type: 3}
   FirerateSprite: {fileID: 21300000, guid: 3ab2d0b86e55c6b4e94a07ab04d78e86, type: 3}
+  DmgSprite: {fileID: 21300000, guid: df6086426c6e14a48a7a068bcd7f5c3c, type: 3}
+  SpreadSprite: {fileID: 21300000, guid: 02e64de27625a1e44b894311d2c60c7e, type: 3}
+  VerlocitySprite: {fileID: 21300000, guid: b8d02399612c1754981d08893199dd47, type: 3}
+  ChainSprite: {fileID: 21300000, guid: b918c6dc0a174664882ced355753ceba, type: 3}
+  LifetapSprite: {fileID: 21300000, guid: 6eb143a7edc3d7a4a8308f82f602280d, type: 3}
+  LifeSprite: {fileID: 21300000, guid: 5fb2df2d7001dd349bc064eba429eaa9, type: 3}
 --- !u!1 &2955199050935774905
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,8 +154,6 @@ MonoBehaviour:
     bar: {fileID: 0}
     maxVal: 0
     currentVal: 0
-  MaxHealth: 0
-  CurrHealth: 0
 --- !u!212 &1725861488182403401
 SpriteRenderer:
   m_ObjectHideFlags: 0

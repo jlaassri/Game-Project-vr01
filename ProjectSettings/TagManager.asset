@@ -8,6 +8,7 @@ TagManager:
   - collectable
   - EBullet
   - Health
+  - Timer
   layers:
   - Default
   - TransparentFX
