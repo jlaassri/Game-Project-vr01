@@ -11,20 +11,30 @@ public class PlayerController : MonoBehaviour
     //private PlayerHealth Health;
     //[SerializeField] private Inven Inven;
 
-   
+    public float highestx = 1431;
+    public float lowestx = -1520;
+    public float highesty = 1643;
+    public float lowesty = -1590;
     public static float Dmgup;
     public static float Speedup;
-    public static float maxspeed = 100f;
+    public static float spreadup;
+    public static float chainup;
+    public static float lifeup;
+    public static float firerateup;
+    public static float verlocityup;
+    
 
     //public float MaxSpeed = 1.5f;
 
     public Rigidbody2D rb;
     public Camera cam;
+   
 
     private Inventory inventory;
 
     Vector2 movement;
     Vector2 mousePos;
+
 
     void Start()
     {
@@ -35,19 +45,21 @@ public class PlayerController : MonoBehaviour
 
         inventory.GetItemList();
 
-        TimerController.instance.BeginTimer();
-        
     }
 
     
     // Update is called once per frame
     void Update()
     {
+        if (TimerController.Instance.TimeGoing == false)
+        {
+            TimerController.Instance.BeginTimer();
+        }
         //Debug.Log(Healthup);
 
         // Debug.Log(MaxHealth);
 
-        Debug.Log(maxspeed);
+        //Debug.Log(maxspeed);
 
         movement.x = Input.GetAxisRaw("Horizontal");
 
@@ -55,12 +67,27 @@ public class PlayerController : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-       /*
-        if (CurrHealth <= 0)
+
+        if(this.gameObject.transform.position.x >= highestx)
         {
-            Debug.Log("you lose");
+            this.gameObject.transform.position = new Vector3(highestx,gameObject.transform.position.y,gameObject.transform.position.z);
         }
-        //facemouse(); */
+
+        if (this.gameObject.transform.position.x <= lowestx)
+        {
+            this.gameObject.transform.position = new Vector3(lowestx, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+
+        if (this.gameObject.transform.position.y >= highesty)
+        {
+            this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, highesty, gameObject.transform.position.z);
+        }
+
+        if (this.gameObject.transform.position.y <= lowesty)
+        {
+            this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, lowesty, gameObject.transform.position.z);
+        }
+
     }
     
     
@@ -95,7 +122,31 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "SpeedSprite")
         {
-            PlayerHealth.Healthup++;
+            Speedup++;
+            Debug.Log("speedup");
+        }
+
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "ChainSprite")
+        {
+            chainup++;
+            Debug.Log("speedup");
+        }
+
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "SpreadSprite")
+        {
+            spreadup++;
+            Debug.Log("speedup");
+        }
+
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "LifeSprite")
+        {
+            lifeup++;
+            Debug.Log("speedup");
+        }
+
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "VerlocitySprite")
+        {
+            verlocityup++;
             Debug.Log("speedup");
         }
     }
@@ -107,10 +158,10 @@ public class PlayerController : MonoBehaviour
     
     public float MaxSpeed()
     {
-        float Maxspeed;
+        float Maxspeed = 100f;
         
 
-        Maxspeed = maxspeed + Speedup / 2;
+        Maxspeed = Maxspeed + Speedup / 2;
         
         return Maxspeed;
     }

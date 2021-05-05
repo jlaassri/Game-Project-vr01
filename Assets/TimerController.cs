@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerController : MonoBehaviour
+public class TimerController : Singleton<TimerController>
 {
-    public static TimerController instance;
+    
 
     public Text TimeCounter;
 
     private TimeSpan TimePlaying;
-    private bool TimeGoing;
+    public bool TimeGoing;
 
     private float elapsedTime;
 
     private void Awake()
     {
-        instance = this;
+        
     }
 
     // Update is called once per frame
@@ -29,12 +29,14 @@ public class TimerController : MonoBehaviour
 
     public void BeginTimer()
     {
+
         TimeGoing = true;
+        Debug.Log(TimeGoing);
         elapsedTime = 0f;
 
         StartCoroutine(UpdateTimer());
     }
-
+    
     public void EndTimer()
     {
         TimeGoing = false;
@@ -44,6 +46,8 @@ public class TimerController : MonoBehaviour
     {
         while (TimeGoing)
         {
+
+            
             elapsedTime += Time.deltaTime;
             TimePlaying = TimeSpan.FromSeconds(elapsedTime);
             string timePlayingstr = TimePlaying.ToString("mm':'ss'.'ff");

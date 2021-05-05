@@ -35,6 +35,16 @@ public class PlayerHealth : MonoBehaviour
 
         //MaxHealth = maxHealth + Healthup * 6;
 
+        if (CurrHealth <= 0 & PlayerController.lifeup <= 0)
+        {
+            Debug.Log("you lose");
+        }
+
+        if(CurrHealth <= 0 & PlayerController.lifeup >= 0)
+        {
+            PlayerController.lifeup--;
+            CurrHealth = MaxHealth() / 2;
+        }
     }
     public float MaxHealth(float increment = 0)
     {

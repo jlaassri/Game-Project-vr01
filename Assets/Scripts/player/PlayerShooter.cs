@@ -8,8 +8,6 @@ public class PlayerShooter : MonoBehaviour
     public Transform firepoint;
     public GameObject bulletprefab;
     float firedelay = 1f;
-    public static float firerateup = 0;
-    public float force = 400f;
     public float cooldowntimer = 0;
 
     void Update()
@@ -24,6 +22,8 @@ public class PlayerShooter : MonoBehaviour
             cooldowntimer = firedelay;
             Shoot();
         }
+
+        
         /*
         if (Input.GetButton("Fire") )
         {
@@ -32,20 +32,29 @@ public class PlayerShooter : MonoBehaviour
         }*/
 
     }
-    /*
+    
     public float FireDelay()
     {
         float firedelay = 0.025f;
 
-        firedelay = firedelay + firerateup - 0.005f;
+        firedelay = firedelay + PlayerController.firerateup - 0.005f;
     
         return firedelay;
     }
-    */
+    
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletprefab, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.up * force, ForceMode2D.Impulse);
+        rb.AddForce(firepoint.up * Force(), ForceMode2D.Impulse);
+    }
+
+    public float Force()
+    {
+        float force = 400f;
+
+        force = force + PlayerController.verlocityup * 10;
+
+        return force;
     }
 }
