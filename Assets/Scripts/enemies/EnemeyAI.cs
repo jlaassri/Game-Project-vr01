@@ -5,6 +5,11 @@ using UnityEngine;
 public class EnemeyAI : MonoBehaviour
 {
     public Transform player;
+    private Explsion explsion;
+    private PlayerHealth Health;
+
+
+    public int numberOfProjectiles;
     public float maxhealth = 50;
     public float currhealth = 50; 
     public float Speed;
@@ -60,6 +65,8 @@ public class EnemeyAI : MonoBehaviour
             Debug.Log("Destroy");
             Destroy();
         }
+
+        numberOfProjectiles = explsion.numberOfProjectiles;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -67,7 +74,10 @@ public class EnemeyAI : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             Damage();
-
+            if (PlayerController.lifetapup >= 1)
+            {
+                Health.lifetap();
+            }
             Debug.Log("Damage");
         }
     }
@@ -92,6 +102,7 @@ public class EnemeyAI : MonoBehaviour
 
     void Destroy()
     {
+        explsion.SpawnProjectiles(numberOfProjectiles);
         Destroy(gameObject);
         MakeItems();
         

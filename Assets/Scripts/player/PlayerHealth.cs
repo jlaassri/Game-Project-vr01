@@ -59,4 +59,9 @@ public class PlayerHealth : MonoBehaviour
     
          return maxHealth;
      }
+
+    public void lifetap()
+    {
+        CurrHealth = CurrHealth + PlayerController.lifetapup * 6;
+    }
 }

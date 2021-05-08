@@ -2064,6 +2064,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1944433198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2955199050935774905, guid: faba1c2cb8e0be0429a95f4c2e074282,
+    type: 3}
+  m_PrefabInstance: {fileID: 2955199050456996913}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1944433206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944433198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41535fea424484b498c51061c348eb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2100691400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,6 +2202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866618618643926159, guid: 882595b38e1c9ff4ea6984939f8cf34a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 882595b38e1c9ff4ea6984939f8cf34a, type: 3}
@@ -2614,16 +2637,41 @@ PrefabInstance:
     - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.14100006
       objectReference: {fileID: 0}
     - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: -0.0029998778
       objectReference: {fileID: 0}
     - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439168049920589066, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1863242829629448055, guid: faba1c2cb8e0be0429a95f4c2e074282,
@@ -2641,6 +2689,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1863242829629448055, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: AimOrigin
+      value: 
+      objectReference: {fileID: 792667769}
+    - target: {fileID: 1863242829629448055, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: ProjectileSpawnPosition
+      value: 
+      objectReference: {fileID: 72000500}
+    - target: {fileID: 1863242829629448055, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
+        type: 3}
     - target: {fileID: 2087194691549989116, guid: faba1c2cb8e0be0429a95f4c2e074282,
         type: 3}
       propertyPath: Health.bar
@@ -2716,7 +2780,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 100
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5771726878905012323, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8098825534401373717, guid: faba1c2cb8e0be0429a95f4c2e074282,
+        type: 3}
+      propertyPath: NumberOfProjectiles
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5771726878905012323, guid: faba1c2cb8e0be0429a95f4c2e074282, type: 3}
+    - {fileID: 8098825534401373717, guid: faba1c2cb8e0be0429a95f4c2e074282, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: faba1c2cb8e0be0429a95f4c2e074282, type: 3}
 --- !u!1001 &4369127214412549536
 PrefabInstance:

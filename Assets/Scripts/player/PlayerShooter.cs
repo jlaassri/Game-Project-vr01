@@ -4,34 +4,59 @@ using UnityEngine;
 
 public class PlayerShooter : MonoBehaviour
 {
+    [SerializeField] private Transform ProjectileSpawnPosition; // GameObject that determines where the proj spawns
+    [SerializeField] private Transform AimOrigin; // Parented to Player. Has AimLook Script
+    [SerializeField] private GameObject bulletprefab;
 
-    public Transform firepoint;
-    public GameObject bulletprefab;
+    [SerializeField] private int NumberOfProjectiles = 3;
+
+    [Range(0, 360)]
+    [SerializeField] private float SpreadAngle = 20;
+
+    //public Transform firepoint;
+    private Multi_pro multipro;
     float firedelay = 1f;
     public float cooldowntimer = 0;
+    public float procchance;
+    private int currProb;
 
     void Update()
     {
+        
+
         if (cooldowntimer >= 0)
         {
             cooldowntimer -= Time.deltaTime;
         }
         if (Input.GetButton("Fire") && cooldowntimer <= 0)
         {
-            Debug.Log("fire");
-            cooldowntimer = firedelay;
-            Shoot();
+            currProb = Random.Range(0, 100);
+            if (currProb <= procchance)
+            {
+                Debug.Log("multifire");
+                cooldowntimer = firedelay;
+
+                MultiShoot();
+            }
+            else
+            {
+                Debug.Log("Fire");
+                cooldowntimer = firedelay;
+                Shoot();
+            }
         }
 
-        
-        /*
-        if (Input.GetButton("Fire") )
-        {
-            Debug.Log("fire");
-            Shoot();
-        }*/
+        procchance = PlayerController.spreadup * 4;
 
+        if(procchance > 100)
+        {
+            procchance = 100;
+        }
+
+
+        //Debug.Log(procchance);
     }
+
     
     public float FireDelay()
     {
@@ -42,11 +67,31 @@ public class PlayerShooter : MonoBehaviour
         return firedelay;
     }
     
+    
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletprefab, firepoint.position, firepoint.rotation);
+        GameObject bullet = Instantiate(bulletprefab, ProjectileSpawnPosition.position, ProjectileSpawnPosition.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.up * Force(), ForceMode2D.Impulse);
+        rb.AddForce(ProjectileSpawnPosition.up * Force(), ForceMode2D.Impulse);
+    }
+
+    private void MultiShoot()
+    {
+        //Debug.Log("it works 4head");
+        float angleStep = SpreadAngle / NumberOfProjectiles;
+        float aimingAngle = AimOrigin.rotation.eulerAngles.z;
+        float centeringOffset = (SpreadAngle / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
+
+        for (int i = 0; i < NumberOfProjectiles; i++)
+        {
+            float currentBulletAngle = angleStep * i;
+
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimingAngle + currentBulletAngle - centeringOffset));
+            GameObject bullet = Instantiate(bulletprefab, ProjectileSpawnPosition.position, rotation);
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(bullet.transform.right * Force(), ForceMode2D.Impulse);
+        }
     }
 
     public float Force()
@@ -57,4 +102,5 @@ public class PlayerShooter : MonoBehaviour
 
         return force;
     }
+    
 }

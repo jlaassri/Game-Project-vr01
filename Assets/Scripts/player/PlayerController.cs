@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private UI_Inventory uiInventory;
-    //private PlayerHealth Health;
+    private Explsion exp;
     //[SerializeField] private Inven Inven;
 
     public float highestx = 1431;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public static float lifeup;
     public static float firerateup;
     public static float verlocityup;
+    public static float lifetapup;
     
 
     //public float MaxSpeed = 1.5f;
@@ -88,6 +89,13 @@ public class PlayerController : MonoBehaviour
             this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, lowesty, gameObject.transform.position.z);
         }
 
+        if(chainup >=1)
+        {
+            Chain();
+        }
+
+        
+
     }
     
     
@@ -129,33 +137,40 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "ChainSprite")
         {
             chainup++;
-            Debug.Log("speedup");
+            Debug.Log("chainup");
         }
 
         if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "SpreadSprite")
         {
             spreadup++;
-            Debug.Log("speedup");
+            Debug.Log("spreadup");
         }
 
         if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "LifeSprite")
         {
             lifeup++;
-            Debug.Log("speedup");
+            Debug.Log("lifeup");
         }
 
         if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "VerlocitySprite")
         {
             verlocityup++;
-            Debug.Log("speedup");
+            Debug.Log("verlocityup");
+        }
+
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "LifeTapSprite")
+        {
+            lifetapup++;
+            Debug.Log("lifetapup");
         }
     }
 
-    
+    void Chain()
+    {
+        
 
-    
-    
-    
+    }
+
     public float MaxSpeed()
     {
         float Maxspeed = 100f;

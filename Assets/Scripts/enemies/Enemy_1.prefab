@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1967156847791204578}
   - component: {fileID: 1967156847791204579}
   - component: {fileID: 1967156847791204577}
+  - component: {fileID: 2743178748040648750}
   - component: {fileID: -2909892885036368644}
   - component: {fileID: -5896413450206156341}
   m_Layer: 0
@@ -105,6 +106,21 @@ MonoBehaviour:
   strartimer: 2
   bullet: {fileID: 3784493712356773045, guid: 49f2acfa9f64b784ba643d50124f64b3, type: 3}
   thisloot: {fileID: 0}
+--- !u!114 &2743178748040648750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967156847791204580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4fb988ff19ea14e88e0de4db6556e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfProjectiles: 0
+  projectile: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
+    type: 3}
 --- !u!50 &-2909892885036368644
 Rigidbody2D:
   serializedVersion: 4
