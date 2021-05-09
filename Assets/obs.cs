@@ -7,19 +7,19 @@ public class obs : MonoBehaviour
     private int scale;
     private Vector3 ScaleChange;
 
-    private float rotation;
+    private float degrees;
     private Quaternion RotationChange;
     // Start is called before the first frame update
     void Start()
     {
         scale = Random.Range(400, 600);
-        rotation = Random.Range(0, 100);
+        degrees = Random.Range(0, 100);
 
         ScaleChange = new Vector3(scale, scale, 0);
-        RotationChange = new Quaternion(0,0,rotation);
+        
 
         this.gameObject.transform.localScale += ScaleChange;
-        this.gameObject.transform.localRotation = RotationChange;
+        this.gameObject.transform.eulerAngles = Vector3.forward * degrees;
 
 
 
