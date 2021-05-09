@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemeyAI : MonoBehaviour
+public class EnemyAI3 : MonoBehaviour
 {
     private GameObject player = null;
     private Explsion explsion;
     private PlayerHealth Health;
 
-    [SerializeField] private Transform ProjectileSpawnPosition; // GameObject that determines where the proj spawns
 
     public int numberOfProjectiles;
     public float maxhealth = 50;
-    public float currhealth = 50; 
+    public float currhealth = 50;
     public float Speed;
     public float Stopdist;
     public float retreatdist;
@@ -21,8 +20,17 @@ public class EnemeyAI : MonoBehaviour
 
     private float timebtwshots;
     public float strartimer;
-    public GameObject bullet;
+    public GameObject Bullet;
     public LootTable thisloot;
+
+    [SerializeField] private Transform ProjectileSpawnPosition; // GameObject that determines where the proj spawns
+    [SerializeField] private Transform AimOrigin; // Parented to Player. Has AimLook Script
+    
+
+    [SerializeField] private int NumberOfProjectiles = 3;
+
+    [Range(0, 360)]
+    [SerializeField] private float SpreadAngle = 20;
 
     //public GameObject Health;
 
@@ -57,36 +65,53 @@ public class EnemeyAI : MonoBehaviour
 
         if (timebtwshots <= 0)
         {
-            shoot();
+            //Instantiate(bullet, transform.position, Quaternion.identity);
+            MultiShoot();
             timebtwshots = strartimer;
-        }else
+        }
+        else
         {
             timebtwshots -= Time.deltaTime;
         }
 
-        if(currhealth <= 0)
+        if (currhealth <= 0)
         {
             Debug.Log("Destroy");
             Destroy();
         }
 
-        Debug.Log(Force());
         //numberOfProjectiles = explsion.numberOfProjectiles;
     }
-
-    private void shoot()
+    public void MultiShoot()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity);
+        Debug.Log("it works 4head");
+        float angleStep = SpreadAngle / NumberOfProjectiles;
+        float aimingAngle = AimOrigin.rotation.eulerAngles.z;
+        float centeringOffset = (SpreadAngle / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
+
+        for (int i = 0; i < NumberOfProjectiles; i++)
+        {
+            float currentBulletAngle = angleStep * i;
+
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimingAngle + currentBulletAngle - centeringOffset));
+            GameObject bullet = Instantiate(Bullet, ProjectileSpawnPosition.position, rotation);
+
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(bullet.transform.right * Force(), ForceMode2D.Impulse);
+        }
+    }
+    void shoot()
+    {
+        GameObject bullet = Instantiate(Bullet, ProjectileSpawnPosition.position, ProjectileSpawnPosition.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(ProjectileSpawnPosition.up * Force(), ForceMode2D.Impulse);
     }
-
     public float Force()
     {
-        float force = 300;
+        float force = 400f;
+
         return force;
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
@@ -110,7 +135,7 @@ public class EnemeyAI : MonoBehaviour
         if (thisloot != null)
         {
             GameObject current = thisloot.LootPowerup();
-            if(current != null)
+            if (current != null)
             {
                 Instantiate(current.gameObject, transform.position, Quaternion.identity);
 
@@ -123,7 +148,7 @@ public class EnemeyAI : MonoBehaviour
         explsion.SpawnProjectiles(numberOfProjectiles);
         Destroy(gameObject);
         MakeItems();
-        emSpawner.limmiter -= 1;
+
 
         Debug.Log("Death");
     }

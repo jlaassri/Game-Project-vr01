@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI2 : MonoBehaviour
 {
-    public Transform player;
+    private GameObject player = null;
     public float maxhealth = 50;
     public float currhealth = 50;
     public float Dmg = 20;
@@ -27,24 +27,26 @@ public class EnemyAI2 : MonoBehaviour
         maxhealth = currhealth;
 
 
-    }
+        if (player == null)
+            player = GameObject.Find("Player");
 
+    }
     void Update()
     {
 
-        if (Vector2.Distance(transform.position, player.position) > Stopdist)
+        if (Vector2.Distance(transform.position, player.transform.position) > Stopdist)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Speed * Time.deltaTime);
         }
-        else if (Vector2.Distance(transform.position, player.position) < Stopdist && Vector2.Distance(transform.position, player.position) > retreatdist)
+        else if (Vector2.Distance(transform.position, player.transform.position) < Stopdist && Vector2.Distance(transform.position, player.transform.position) > retreatdist)
         {
             transform.position = this.transform.position;
         }
-        else if (Vector2.Distance(transform.position, player.position) < retreatdist)
+        else if (Vector2.Distance(transform.position, player.transform.position) < retreatdist)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -Speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -Speed * Time.deltaTime);
         }
-        Vector3 direction = player.position - transform.position;
+        Vector3 direction = player.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
 

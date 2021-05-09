@@ -17,15 +17,14 @@ public class Ebullet : MonoBehaviour
         target = new Vector2(player.position.x, player.position.y);
 
 
-        
+
     }
 
   
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
         
+        //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
     }
 
