@@ -75,6 +75,8 @@ public class PlayerShooter : MonoBehaviour
         rb.AddForce(ProjectileSpawnPosition.up * Force(), ForceMode2D.Impulse);
     }
 
+
+
     private void MultiShoot()
     {
         //Debug.Log("it works 4head");

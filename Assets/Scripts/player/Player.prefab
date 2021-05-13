@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255569059709747172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0.169, y: -0.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2955199050935774907}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!212 &8763525742779652495
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,11 +147,10 @@ GameObject:
   - component: {fileID: 1095440681412753536}
   - component: {fileID: 2087194691549989116}
   - component: {fileID: 1863242829629448055}
-  - component: {fileID: 5771726878905012323}
-  - component: {fileID: 8098825534401373717}
   - component: {fileID: 1725861488182403401}
   - component: {fileID: 1331626792878979890}
   - component: {fileID: 6647489336958482269}
+  - component: {fileID: 3415884406026697696}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -222,44 +221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e20b9d6c24cde14bb4006b7223093ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firepoint: {fileID: 1439168049920589066}
-  bulletprefab: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
-    type: 3}
-  cooldowntimer: 0
-  procchance: 0
---- !u!114 &5771726878905012323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2955199050935774905}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61915808d1eabb44496b0e46e1d0a660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfProjectiles: 4
-  projectile: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
-    type: 3}
---- !u!114 &8098825534401373717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2955199050935774905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 090f13dc07a1143449b1fbb8fcffd276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   ProjectileSpawnPosition: {fileID: 1439168049920589066}
   AimOrigin: {fileID: 2955199050935774907}
-  BulletPrefab: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
+  bulletprefab: {fileID: 4635758735609031355, guid: ddda5f2423314a84c8b0e799eb215c6f,
     type: 3}
   NumberOfProjectiles: 3
   SpreadAngle: 20
+  cooldowntimer: 0
+  procchance: 0
 --- !u!212 &1725861488182403401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -347,3 +316,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &3415884406026697696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955199050935774905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41535fea424484b498c51061c348eb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

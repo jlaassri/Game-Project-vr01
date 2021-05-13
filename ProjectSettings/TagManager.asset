@@ -9,6 +9,8 @@ TagManager:
   - EBullet
   - Health
   - Timer
+  - obstacle
+  - healer
   layers:
   - Default
   - TransparentFX

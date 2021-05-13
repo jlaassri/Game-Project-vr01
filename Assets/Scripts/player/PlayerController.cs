@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 look = mousePos - rb.position;
 
-        float angle = Mathf.Atan2(look.y, look.x)* Mathf.Rad2Deg -90f;
+        float angle = Mathf.Atan2(look.y, look.x)* Mathf.Rad2Deg;
 
         rb.rotation = angle;
     }

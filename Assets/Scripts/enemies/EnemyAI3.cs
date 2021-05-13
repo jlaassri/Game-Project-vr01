@@ -145,7 +145,7 @@ public class EnemyAI3 : MonoBehaviour
 
     void Destroy()
     {
-        explsion.SpawnProjectiles(numberOfProjectiles);
+
         Destroy(gameObject);
         MakeItems();
 
