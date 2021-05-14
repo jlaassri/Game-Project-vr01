@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (CurrHealth <= 0 & PlayerController.lifeup <= 0)
         {
+            gameover();
             Debug.Log("you lose");
         }
 
@@ -47,6 +49,11 @@ public class PlayerHealth : MonoBehaviour
             PlayerController.lifeup--;
             CurrHealth = MaxHealth() / 2;
         }
+    }
+
+    private void gameover()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public float MaxHealth(float increment = 0)
     {

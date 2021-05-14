@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, lowesty, gameObject.transform.position.z);
         }
 
-
+        
         
 
     }
@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
 
     public float MaxSpeed()
     {
