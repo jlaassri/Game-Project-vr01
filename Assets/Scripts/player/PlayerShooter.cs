@@ -22,7 +22,6 @@ public class PlayerShooter : MonoBehaviour
 
     void Update()
     {
-        
 
         if (cooldowntimer >= 0)
         {

@@ -89,10 +89,6 @@ public class PlayerController : MonoBehaviour
             this.gameObject.transform.position = new Vector3(gameObject.transform.position.x, lowesty, gameObject.transform.position.z);
         }
 
-        if(chainup >=1)
-        {
-            Chain();
-        }
 
         
 
@@ -165,11 +161,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Chain()
-    {
-        
-
-    }
 
     public float MaxSpeed()
     {

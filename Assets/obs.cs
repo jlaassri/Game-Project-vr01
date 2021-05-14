@@ -9,6 +9,9 @@ public class obs : MonoBehaviour
     private float maxhealth;
     private float Force = 700f;
 
+
+    private float timer = 50f;
+
     private int scale;
     private Vector3 ScaleChange;
     private float degrees;
@@ -50,6 +53,12 @@ public class obs : MonoBehaviour
         if(currhealth <= 0)
         {
             Destroy();
+        }
+
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

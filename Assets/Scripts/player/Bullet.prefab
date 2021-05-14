@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4465828102509480324}
   - component: {fileID: 4490060851197849690}
   - component: {fileID: -8314631967640839243}
+  - component: {fileID: -8082136199392643777}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -208,4 +209,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4779c1126c44984abd75089f5cabe53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfProjectiles: 3
+  projectile: {fileID: 4635758735609031355}
   timer: 2
+  procchance: 0
+--- !u!114 &-8082136199392643777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635758735609031355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4fb988ff19ea14e88e0de4db6556e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfProjectiles: 3
+  projectile: {fileID: 4635758735609031355}
