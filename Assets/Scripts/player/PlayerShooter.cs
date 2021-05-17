@@ -13,8 +13,7 @@ public class PlayerShooter : MonoBehaviour
     [Range(0, 360)]
     [SerializeField] private float SpreadAngle = 20;
 
-    //public Transform firepoint;
-    private Multi_pro multipro;
+   
     float firedelay = 1f;
     public float cooldowntimer = 0;
     public float procchance;
@@ -61,7 +60,7 @@ public class PlayerShooter : MonoBehaviour
     {
         float firedelay = 0.025f;
 
-        firedelay = firedelay + PlayerController.firerateup - 0.005f;
+        firedelay = firedelay + PlayerController.firerateup - 0.7f;
     
         return firedelay;
     }
@@ -78,7 +77,6 @@ public class PlayerShooter : MonoBehaviour
 
     private void MultiShoot()
     {
-        //Debug.Log("it works 4head");
         float angleStep = SpreadAngle / NumberOfProjectiles;
         float aimingAngle = AimOrigin.rotation.eulerAngles.z;
         float centeringOffset = (SpreadAngle / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
