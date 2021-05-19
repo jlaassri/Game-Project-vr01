@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("you lose");
         }
 
-        if(CurrHealth <= 0 & PlayerController.lifeup >= 0)
+        if(CurrHealth <= 0 & PlayerController.lifeup > 0)
         {
             PlayerController.lifeup--;
             CurrHealth = MaxHealth() / 2;

@@ -124,6 +124,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Healthup");
         }
 
+        if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "DmgSprite")
+        {
+            Dmgup++;
+            Debug.Log("Dmgup");
+        }
+
         if (other.gameObject.GetComponent<SpriteRenderer>().sprite.name == "SpeedSprite")
         {
             Speedup++;
