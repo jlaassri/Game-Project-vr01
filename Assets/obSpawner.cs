@@ -18,7 +18,7 @@ public class obSpawner : MonoBehaviour
     {
         if (limmiter > 25)
         {
-            limmiter = 25;
+            limmiter = 10;
         }
         if (timebtwshots <= 0 & limmiter < 25)
         {

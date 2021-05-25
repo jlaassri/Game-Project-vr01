@@ -8,18 +8,19 @@ public class Explsion : MonoBehaviour
 	[SerializeField]
 	public int numberOfProjectiles;
 
+	private PlayerShooter shooter;
+
 	[SerializeField]
 	GameObject projectile;
 
 	Vector2 startPoint;
 
-	float radius, moveSpeed;
+	float radius;
 
 	// Use this for initialization
 	void Start()
 	{
 		radius = 5f;
-		moveSpeed = 5f;
 	}
 
 	// Update is called once per frame
@@ -42,7 +43,7 @@ public class Explsion : MonoBehaviour
 			float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
 			Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
-			Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
+			Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * shooter.Force();
 
 			var proj = Instantiate(projectile, startPoint, Quaternion.identity);
 			proj.GetComponent<Rigidbody2D>().velocity =

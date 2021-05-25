@@ -1932,7 +1932,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeCounter: {fileID: 1215871409}
-  EnPower: 0
 --- !u!1 &1598599640
 GameObject:
   m_ObjectHideFlags: 0

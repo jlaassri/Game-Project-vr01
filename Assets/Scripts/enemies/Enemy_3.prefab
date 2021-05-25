@@ -135,13 +135,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfProjectiles: 0
   maxhealth: 50
-  currhealth: 50
-  Speed: 50
   Stopdist: 50
   retreatdist: 10
   strartimer: 4
   Bullet: {fileID: 3784493712356773045, guid: 49f2acfa9f64b784ba643d50124f64b3, type: 3}
-  thisloot: {fileID: 0}
+  thisloot: {fileID: 11400000, guid: 9f4b6526a77042d4b93602595f6f62d3, type: 2}
   ProjectileSpawnPosition: {fileID: 5742914417073329881}
   AimOrigin: {fileID: 5742914417073329881}
   NumberOfProjectiles: 3

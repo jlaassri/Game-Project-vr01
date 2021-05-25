@@ -10,9 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b88073d957d15424b9097d3e7ba5d85c, type: 3}
-  m_Name: OBtable
+  m_Name: Enemy2 loot table
   m_EditorClassIdentifier: 
   loots:
-  - thisLoot: {fileID: 5062435278347001210, guid: c04de35ffb20fb641a07b0f2bddf96d0,
+  - thisLoot: {fileID: 4899352009236388566, guid: 9ec352e9029d5d349a5a4f665414aa29,
       type: 3}
-    lootchance: 100
+    lootchance: 20
+  - thisLoot: {fileID: 4977627011074873627, guid: 2d0f2c377a7847640bc767d06d8a441c,
+      type: 3}
+    lootchance: 20
+  - thisLoot: {fileID: 2451833536616971826, guid: 525630212df0b1a4eb54a72f6c8ef3ba,
+      type: 3}
+    lootchance: 20

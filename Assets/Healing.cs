@@ -4,55 +4,37 @@ using UnityEngine;
 
 public class Healing : MonoBehaviour
 {
-    // Start is called before the first frame update
-    
-
-    //private PlayerHealth playerHealth;
-    //public Transform player;
-
-    private float Speed = 100;
-    private float Stopdist;
-    private float retreatdist;
-    private Rigidbody2D rb;
-    //private Vector2 movement;
+    private float Speed = 100; //sets the speed value
+    private Rigidbody2D rb; //get rigidbody2d component
 
     private void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-
-
+        rb = this.GetComponent<Rigidbody2D>(); //set rb to this game objects rigidbody2d
     }
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, Speed * Time.deltaTime);
-        
-        //Vector3 direction = player.position - transform.position;
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //rb.rotation = angle;
+        transform.position = Vector2.MoveTowards(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position, Speed * Time.deltaTime); //moves the game object to player position
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player")) //checks if collision is the player 
         {
-            PlayerHealth.CurrHealth = PlayerHealth.CurrHealth + healing();
-            Destroy();
+            PlayerHealth.CurrHealth = PlayerHealth.CurrHealth + healing(); //heals player on collsion 
+            Destroy(); //calls healing function 
         }
     }
 
-    public float healing()
+    public float healing() //healing function
     {
-        float heal;
-        heal = PlayerHealth.max / 10;
-        return heal;
+        float heal; //creates float
+        heal = PlayerHealth.max / 10; //makes float = to player health divided by 10 
+        return heal; //retuns healing value 
     }
 
-    void Destroy()
+    void Destroy() //destroy function
     {
-        Destroy(gameObject);
-        
-
-
-        Debug.Log(healing());
+        Destroy(gameObject); //destorys game object 
+        Debug.Log(healing()); //debugs healing value 
     }
 }

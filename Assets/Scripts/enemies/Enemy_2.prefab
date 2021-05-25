@@ -96,13 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ca281a00b6fb34cb6775b488a3a819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  maxhealth: 50
-  currhealth: 50
-  Speed: 70
-  Stopdist: 0
-  retreatdist: 0
-  thisloot: {fileID: 0}
+  maxhealth: 20
+  Dmg: 20
+  thisloot: {fileID: 11400000, guid: e8c4e16261cb3bd48af1632c4a435a0f, type: 2}
 --- !u!50 &8753229970832414871
 Rigidbody2D:
   serializedVersion: 4

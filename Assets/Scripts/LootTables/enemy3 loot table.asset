@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88073d957d15424b9097d3e7ba5d85c, type: 3}
+  m_Name: enemy3 loot table
+  m_EditorClassIdentifier: 
+  loots:
+  - thisLoot: {fileID: 3909180516141609075, guid: 1a132974d25331e47a1fbe62196692d6,
+      type: 3}
+    lootchance: 20
+  - thisLoot: {fileID: 6155599661487186586, guid: f6e520e3b16f1254ca64b1bee33d068d,
+      type: 3}
+    lootchance: 20
+  - thisLoot: {fileID: 6143269365107341554, guid: 7383004474ea34f4d98d2ce441b67170,
+      type: 3}
+    lootchance: 20
+  - thisLoot: {fileID: 7052070544427283250, guid: 99fd361ff42cf6b44b43e8634b60f92f,
+      type: 3}
+    lootchance: 20
+  - thisLoot: {fileID: 0}
+    lootchance: 0
