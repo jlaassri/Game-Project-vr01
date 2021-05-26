@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    public int numberOfProjectiles;
+    private Transform ProjectileSpawnPosition; // GameObject that determines where the proj spawns
+    private Transform AimOrigin; // Parented to Player. Has AimLook Script
+    [SerializeField] private GameObject bulletprefab;
 
-    [SerializeField]
-    GameObject projectile;
+    private int NumberOfProjectiles = 3;
 
-    Vector2 startPoint;
-
-    float radius, moveSpeed;
+     private float SpreadAngle = 360;
 
     public float timer = 1f;
     public float procchance;
@@ -26,50 +24,50 @@ public class Bullet : MonoBehaviour
         }
 
         procchance = PlayerController.chainup * 4;
+
+        ProjectileSpawnPosition = this.gameObject.transform;
+        AimOrigin = this.gameObject.transform;
     }
 
     public float Force()
     {
-        float force = 400f;
+        float force = 300f;
 
         force = force + PlayerController.verlocityup * 10;
 
         return force;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
-
-        if (PlayerController.chainup > 0)
+        if (collision.gameObject.CompareTag("obstacle") || collision.gameObject.CompareTag("enemy"))
         {
-            currProb = Random.Range(0, 100);
-            if (currProb <= procchance)
+            if (PlayerController.chainup > 0)
             {
-                SpawnProjectiles(numberOfProjectiles);
+                currProb = Random.Range(0, 100);
+                if (currProb <= procchance)
+                {
+                    Chain();
+                }
             }
+            Destroy(gameObject);
         }
     }
-
-    public void SpawnProjectiles(int numberOfProjectiles)
+ 
+    public void Chain()
     {
-        float angleStep = 360f / numberOfProjectiles;
-        float angle = 0f;
+        float angleStep = SpreadAngle / NumberOfProjectiles;
+        float aimingAngle = AimOrigin.rotation.eulerAngles.z;
+        float centeringOffset = (SpreadAngle / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
 
-        for (int i = 0; i <= numberOfProjectiles - 1; i++)
+        for (int i = 0; i < NumberOfProjectiles; i++)
         {
+            float currentBulletAngle = angleStep * i;
 
-            float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180) * radius;
-            float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
+            Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimingAngle + currentBulletAngle - centeringOffset));
+            GameObject bullet = Instantiate(bulletprefab, ProjectileSpawnPosition.position, rotation);
 
-            Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
-            Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * Force();
-
-            var proj = Instantiate(projectile, startPoint, Quaternion.identity);
-            proj.GetComponent<Rigidbody2D>().velocity =
-                new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
-
-            angle += angleStep;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(bullet.transform.right * Force(), ForceMode2D.Impulse);
         }
     }
 }

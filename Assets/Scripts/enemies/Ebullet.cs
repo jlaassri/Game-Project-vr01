@@ -20,11 +20,15 @@ public class Ebullet : MonoBehaviour
 
     void Update()
     {
-        Dmg = Dmg * EnTimer.EnPower; //sets the dmg value 
+        if(EnTimer.EnPower > 0) //if enpower increases
+        {
+            Dmg = Dmg * EnTimer.EnPower; //increase the dmg value 
+        }
     }
 
     void Damage()
     {
+        SoundManager.PlaySound("hitplayer"); //plays the hit sound effect
         PlayerHealth.CurrHealth = PlayerHealth.CurrHealth - Dmg; //reduces the players health based on dmg value
         this.gameObject.SetActive(false); //set game object to false 
     }

@@ -30,15 +30,7 @@ public class EnemyAI2 : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, Speed() * Time.deltaTime); //moves enmy towards player 
         }
-        else if (Vector2.Distance(transform.position, player.transform.position) < Stopdist && Vector2.Distance(transform.position, player.transform.position) > retreatdist) //checks if enemy is with stopping distance but not retreat distance 
-        {
-            transform.position = this.transform.position; //stops movement 
-        }
-        else if (Vector2.Distance(transform.position, player.transform.position) < retreatdist)// checks if player is with retreat distance 
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, -Speed() * Time.deltaTime); //retreats from player 
-        }
-     
+
         if (currhealth <= 0) //checks if enemy health is < or = 0
         {
             Debug.Log("Destroy"); //debug check if working 
@@ -54,7 +46,7 @@ public class EnemyAI2 : MonoBehaviour
 
     public float Speed() //speed function 
     {
-        float speed = 50; // set speed value
+        float speed = 80; // set speed value
         speed = speed + EnTimer.EnPower * 10; //speed equation 
         return speed; //returns speed value
     }
@@ -102,6 +94,7 @@ public class EnemyAI2 : MonoBehaviour
 
     void Destroy()//destroy function 
     {
+        SoundManager.PlaySound("enemydeath"); //plays enemy death sound effect
         Destroy(gameObject); // destroys game object
         MakeItems();// runs item spaawner function
         Debug.Log("Death"); //debug if enemy dies

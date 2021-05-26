@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 4287196773061184456}
   - component: {fileID: 4287196773061184457}
   - component: {fileID: 8623948730227843030}
-  - component: {fileID: 1015609330200824545}
   - component: {fileID: 2127752644059202927}
-  - component: {fileID: 2763388665930628349}
+  - component: {fileID: -3988001273690632387}
   m_Layer: 0
   m_Name: Enemy_1
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,11 +70,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1335463581
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.05660379, g: 0.005606979, b: 0.005606979, a: 1}
+  m_Sprite: {fileID: 21300000, guid: db3ded9f5084aad459dcabdc2afc8cf5, type: 3}
+  m_Color: {r: 0.10840159, g: 0.6181883, b: 0.7924528, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,7 +105,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &1015609330200824545
+--- !u!114 &2127752644059202927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287196773061184462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74802ca34891ecc48b046f1f6cdd4c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhealth: 30
+  Stopdist: 60
+  retreatdist: 30
+  starttimer: 7
+  Bullet: {fileID: 3784493712356773045, guid: 49f2acfa9f64b784ba643d50124f64b3, type: 3}
+  thisloot: {fileID: 11400000, guid: 180f1308b072356438fedc7d86142156, type: 2}
+  ProjectileSpawnPosition: {fileID: 4287196773061184456}
+  AimOrigin: {fileID: 4287196773061184456}
+  NumberOfProjectiles: 1
+  SpreadAngle: 0
+--- !u!58 &-3988001273690632387
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,39 +142,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &2127752644059202927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4287196773061184462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74802ca34891ecc48b046f1f6cdd4c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfProjectiles: 0
-  maxhealth: 30
-  Stopdist: 60
-  retreatdist: 30
-  strartimer: 4
-  Bullet: {fileID: 3784493712356773045, guid: 49f2acfa9f64b784ba643d50124f64b3, type: 3}
-  thisloot: {fileID: 11400000, guid: 180f1308b072356438fedc7d86142156, type: 2}
-  ProjectileSpawnPosition: {fileID: 4287196773061184456}
-  AimOrigin: {fileID: 4287196773061184456}
-  NumberOfProjectiles: 1
-  SpreadAngle: 0
---- !u!114 &2763388665930628349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4287196773061184462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84590c7a4b7e0794c8baccfc90f8711e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.16

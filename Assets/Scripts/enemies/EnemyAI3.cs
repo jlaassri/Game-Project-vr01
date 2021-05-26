@@ -11,7 +11,7 @@ public class EnemyAI3 : MonoBehaviour
     public float Stopdist; // stoping distance 
     public float retreatdist; //retreat distance
     private Rigidbody2D rb; //gets rigidbody2d 
-
+    private float shootingrange = 200; //shooting range
     private float timebtwshots; //time between shoots
     public float starttimer; // start time
     public GameObject Bullet; //bullet prefab
@@ -56,16 +56,19 @@ public class EnemyAI3 : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // converts player position into rotation angle
         rb.rotation = angle; // sets the rigidbody to this roation angle
 
-        if (timebtwshots <= 0) //checks if the time between shoots is < 0
+        if (Vector2.Distance(transform.position, player.transform.position) < shootingrange) //if in shooting range 
         {
-            MultiShoot(); // runs shooting function if the timer is < 0
-            timebtwshots = starttimer; // resets timer 
+            if (timebtwshots <= 0) //checks if the time between shoots is < 0
+            {
+                SoundManager.PlaySound("enemyshoot"); //plays death sound effect
+                MultiShoot(); // runs shooting function if the timer is < 0
+                timebtwshots = starttimer; // resets timer 
+            }
+            else //if not
+            {
+                timebtwshots -= Time.deltaTime; //timer is reduced by seconds
+            }
         }
-        else //if not
-        {
-            timebtwshots -= Time.deltaTime; //timer is reduced by seconds
-        }
-
         if (currhealth <= 0) //checks if current health value is < 0
         {
             Debug.Log("Destroy");// debug for checking if working
@@ -141,6 +144,7 @@ public class EnemyAI3 : MonoBehaviour
 
     void Destroy()//destroy function 
     {
+        SoundManager.PlaySound("enemydeath"); //plays death sound effect
         Destroy(gameObject); // destroys game object
         MakeItems();// runs item spaawner function
         Debug.Log("Death"); //debug if enemy dies

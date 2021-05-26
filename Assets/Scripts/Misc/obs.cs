@@ -39,11 +39,9 @@ public class obs : MonoBehaviour
 
     void Destroy()
     {
+        SoundManager.PlaySound("Obsdestroyed"); //plays the destroyed sound effect
         Instantiate(healer, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
-        
-
-
         Debug.Log("Death");
     }
 
@@ -67,8 +65,6 @@ public class obs : MonoBehaviour
         if (other.CompareTag("Bullet"))
         {
             Damage();
-
-
         }
     }
 }

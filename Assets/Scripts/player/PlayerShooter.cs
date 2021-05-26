@@ -29,15 +29,16 @@ public class PlayerShooter : MonoBehaviour
         if (Input.GetButton("Fire") && cooldowntimer <= 0)
         {
             currProb = Random.Range(0, 100);
-            if (currProb <= procchance)
+            if (currProb <= procchance & PlayerController.spreadup > 0)
             {
                 Debug.Log("multifire");
                 cooldowntimer = firedelay;
-
+                SoundManager.PlaySound("playershoot");
                 MultiShoot();
             }
             else
             {
+                SoundManager.PlaySound("playershoot");
                 Debug.Log("Fire");
                 cooldowntimer = firedelay;
                 Shoot();
@@ -95,7 +96,7 @@ public class PlayerShooter : MonoBehaviour
 
     public float Force()
     {
-        float force = 400f;
+        float force = 300f;
 
         force = force + PlayerController.verlocityup * 10;
 

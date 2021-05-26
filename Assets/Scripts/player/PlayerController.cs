@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
         ItemWorld itemWorld = other.GetComponent<ItemWorld>();
         if (itemWorld)
         {
-            
+            SoundManager.PlaySound("pickup");
             inventory.AddItem(itemWorld.GetItem());
             itemWorld.DestorySelf();
             Debug.Log("collected");

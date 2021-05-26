@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 3866618618643926152}
   - component: {fileID: 946834721974559581}
   - component: {fileID: 8753229970832414871}
-  - component: {fileID: 58538736045837728}
+  - component: {fileID: 3895620559816889965}
+  - component: {fileID: 283578894857488952}
   m_Layer: 0
   m_Name: Enemy_2
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3866618618643926159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 361, y: 544, z: 100}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,11 +71,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1335463581
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.05660379, g: 0.005606979, b: 0.005606979, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4e32b481df7b71e44a85fcd41e5cc187, type: 3}
+  m_Color: {r: 0.7924528, g: 0.056069765, b: 0.056069765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -120,8 +121,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58538736045837728
-CircleCollider2D:
+--- !u!60 &3895620559816889965
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,5 +135,41 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.95, y: 0.64}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.475, y: 0.049999997}
+      - {x: 0.275, y: 0.17999999}
+      - {x: -0.145, y: 0.32}
+      - {x: -0.275, y: 0.32}
+      - {x: -0.475, y: 0.24}
+      - {x: -0.475, y: 0.13}
+      - {x: -0.265, y: -0.049999997}
+      - {x: -0.39499998, y: -0.12}
+      - {x: -0.475, y: -0.17999999}
+      - {x: -0.475, y: -0.22999999}
+      - {x: -0.295, y: -0.32}
+      - {x: -0.205, y: -0.32}
+      - {x: -0.055, y: -0.25}
+      - {x: 0.345, y: -0.13}
+      - {x: 0.475, y: -0.03}
+--- !u!114 &283578894857488952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3866618618643926159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84590c7a4b7e0794c8baccfc90f8711e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

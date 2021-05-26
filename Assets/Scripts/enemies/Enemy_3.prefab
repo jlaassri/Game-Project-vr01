@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 5742914417073329881}
   - component: {fileID: 5742914417073329880}
   - component: {fileID: 244227172339417799}
-  - component: {fileID: 8851239792479967216}
   - component: {fileID: 7587029619299014782}
+  - component: {fileID: 884730677088919901}
   m_Layer: 0
   m_Name: Enemy_3
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5742914417073329887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 322, y: 399, z: 100}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,11 +70,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1335463581
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.05660379, g: 0.005606979, b: 0.005606979, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 302541956c43d6249b9099b29cc6eb25, type: 3}
+  m_Color: {r: 0.10188974, g: 0.086507656, b: 0.6792453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,22 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &8851239792479967216
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5742914417073329887}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
 --- !u!114 &7587029619299014782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,14 +117,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74802ca34891ecc48b046f1f6cdd4c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfProjectiles: 0
   maxhealth: 50
   Stopdist: 50
   retreatdist: 10
-  strartimer: 4
+  starttimer: 7
   Bullet: {fileID: 3784493712356773045, guid: 49f2acfa9f64b784ba643d50124f64b3, type: 3}
   thisloot: {fileID: 11400000, guid: 9f4b6526a77042d4b93602595f6f62d3, type: 2}
   ProjectileSpawnPosition: {fileID: 5742914417073329881}
   AimOrigin: {fileID: 5742914417073329881}
   NumberOfProjectiles: 3
   SpreadAngle: 20
+--- !u!60 &884730677088919901
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742914417073329887}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9, y: 0.9}
+    newSize: {x: 0.2, y: 0.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.41, y: -0.07}
+      - {x: 0.41, y: 0.049999997}
+      - {x: 0.45, y: 0.21}
+      - {x: 0.45, y: 0.29999998}
+      - {x: 0.28, y: 0.45}
+      - {x: -0.28, y: 0.45}
+      - {x: -0.39, y: 0.37}
+      - {x: -0.45, y: 0.29}
+      - {x: -0.45, y: 0.11}
+      - {x: -0.39999998, y: -0.07}
+      - {x: -0.38, y: -0.14}
+      - {x: -0.45, y: -0.25}
+      - {x: -0.45, y: -0.38}
+      - {x: -0.32999998, y: -0.45}
+      - {x: 0.32999998, y: -0.45}
+      - {x: 0.39999998, y: -0.39999998}
+      - {x: 0.45, y: -0.32}
+      - {x: 0.45, y: -0.17999999}
