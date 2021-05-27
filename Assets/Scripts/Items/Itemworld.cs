@@ -4,40 +4,41 @@ using UnityEngine;
 
 public class ItemWorld : MonoBehaviour
 {
-    public static ItemWorld SpawnItemWorld(Vector3 position, Item item)
+    //for any code that isnt my own, check relivent blog post for citation
+    public static ItemWorld SpawnItemWorld(Vector3 position, Item item) //spwans item clone 
     {
-        Transform transform = Instantiate(ItemAssets.instance.Prefab_ItemWorld, position, Quaternion.identity);
+        Transform transform = Instantiate(ItemAssets.instance.Prefab_ItemWorld, position, Quaternion.identity); //spawns clown ato prefab location
 
-        ItemWorld itemWorld =  transform.GetComponent<ItemWorld>();
-        itemWorld.SetItem(item);
+        ItemWorld itemWorld =  transform.GetComponent<ItemWorld>(); //get itemworld component
+        itemWorld.SetItem(item);//sets item value to clone
 
-        return itemWorld;
+        return itemWorld; //returns value
     }
 
-    private Item item;
-    private SpriteRenderer spriteRenderer;
+    private Item item; //gets item class 
+    private SpriteRenderer spriteRenderer; //gets sprtie renderer
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); //get sprtie renderer compnnetent
     }
-    public void SetItem(Item item)
+    public void SetItem(Item item) //sets item
     {
-        this.item = item;
-        spriteRenderer.sprite = item.GetSprite();
+        this.item = item; //sets item from class 
+        spriteRenderer.sprite = item.GetSprite(); //get sprite from class 
 
-    }
-
-    public Item GetItem()
-    {
-
-        Debug.Log(item);
-        return item;
     }
 
-    public void DestorySelf()
+    public Item GetItem() //gets item from class 
     {
-        Destroy(gameObject);
-        Debug.Log("item");
+
+        Debug.Log(item); //debug checking 
+        return item; //returns item 
+    }
+
+    public void DestorySelf()// destroys object once clone is spawned 
+    {
+        Destroy(gameObject);//destroys game object 
+        Debug.Log("item"); //debug check 
     }
 
 }

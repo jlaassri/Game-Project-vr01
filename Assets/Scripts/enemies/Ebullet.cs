@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ebullet : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     public float speed; //speed float
     public PlayerHealth Player; //player health script
 

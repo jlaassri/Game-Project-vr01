@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Healing : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     private float Speed = 100; //sets the speed value
     private Rigidbody2D rb; //get rigidbody2d component
 

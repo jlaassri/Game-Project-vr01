@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     public static AudioClip background, enemydeath, enemyhit, hitplayer, Obsdestroyed, pickup, playershoot, enemyshoot; //audio flies
     static AudioSource audiosrc; // gets audio source
    
@@ -19,12 +20,12 @@ public class SoundManager : MonoBehaviour
         playershoot = Resources.Load<AudioClip>("playershoot"); // sets Playershoot to playershoot audio file
         enemyshoot = Resources.Load<AudioClip>("enemyshoot"); // sets enemyshoot to enemyshoot audio file
 
-        audiosrc = GetComponent<AudioSource>();
+        audiosrc = GetComponent<AudioSource>();// gets audi source component
     }
 
-    public static void PlaySound(string clip)
+    public static void PlaySound(string clip)//playsound function
     {
-        switch (clip)
+        switch (clip)// checks for keyword, if true plays sound
         {
             case"background": audiosrc.PlayOneShot(background);
                 break;

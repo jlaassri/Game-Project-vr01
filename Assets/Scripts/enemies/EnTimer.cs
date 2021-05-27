@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnTimer : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     public GameObject TimeCounter; // get enemy time counter game object 
 
     public static float EnPower; //enemy power increase float 

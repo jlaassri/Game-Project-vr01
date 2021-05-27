@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     private GameObject player = null; //gets player game object
 
     private void Start()

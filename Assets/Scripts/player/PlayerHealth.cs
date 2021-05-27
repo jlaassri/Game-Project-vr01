@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     [SerializeField] private UI_stats Health; //sets UI stats script
 
     public static float CurrHealth; //players current health 

@@ -5,33 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject mainmenu;
-    public GameObject options;
-    public void PlayGame()
+    //for any code that isnt my own, check relivent blog post for citation
+    public GameObject mainmenu; //gets menu game object 
+    public GameObject options; //gets option game object 
+    public void PlayGame()// button
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //on button press increase queue by 1 
     }
 
-    public void Options()
+    public void Options() //button
     {
-        mainmenu.SetActive(false);
-        options.SetActive(true);
+        mainmenu.SetActive(false); //set menu to false 
+        options.SetActive(true); //sets options to true 
     }
 
-    public void Back()
+    public void Back() //button
     {
-        mainmenu.SetActive(true);
-        options.SetActive(false);
+        mainmenu.SetActive(true); //set menu to true 
+        options.SetActive(false); //sets options to false
     }
 
-    public void BackAgain()
+    public void BackAgain() //button
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);//on button press decreases queue by 2
     }
 
 
     public void PlayGameAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);//on button press decreases queue by 2
     }
 }

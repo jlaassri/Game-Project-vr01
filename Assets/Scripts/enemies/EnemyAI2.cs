@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI2 : MonoBehaviour
 {
+    //for any code that isnt my own, check relivent blog post for citation
     private GameObject player = null; // gets player game object 
     private PlayerHealth Health; //gets player health script
     public float maxhealth;// max health value

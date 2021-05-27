@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class emSpawner : MonoBehaviour
 {
-
+    //for any code that isnt my own, check relivent blog post for citation
     private float timebtwspawn; // time between spawns
     public float strartimer; // set timer 
     public static float limmiter = 0; //spawn limmiter
